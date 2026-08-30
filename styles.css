@@ -95,3 +95,21 @@ h1 span,h2 em{font-family:Onest,Arial,sans-serif;font-weight:700;letter-spacing:
 /* Unified heading treatment: one bold weight, without colored emphasis. */
 h1,h2,h3,h4,h5,h6{font-family:Onest,Arial,sans-serif!important;font-weight:800!important}
 h1 span,h1 em,h1 strong,h2 span,h2 em,h2 strong,h3 span,h3 em,h3 strong,h4 span,h4 em,h4 strong,h5 span,h5 em,h5 strong,h6 span,h6 em,h6 strong{color:inherit!important;font-family:inherit!important;font-weight:inherit!important}
+
+/* Keep the desktop programme compact and easy to scan. */
+@media(min-width:1000px){
+  .program .section-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+  .program .section-heading p{margin:0 0 6px}
+  .program .days{margin-top:38px}
+  .program .schedule{width:100%;max-width:1180px;margin-top:54px}
+  .program .schedule__group{display:grid;grid-template-columns:250px minmax(0,1fr);gap:54px;padding:38px 0}
+  .program .schedule__title{align-self:start}
+  .program .schedule__title h3{margin-top:12px;font-size:29px;line-height:1.1}
+  .program .schedule__moderator,.program .schedule__subtitle{max-width:220px;margin:18px 0 0;font-size:13px;line-height:1.55}
+  .program .timeline li{grid-template-columns:112px minmax(0,1fr);gap:28px;padding:20px 0}
+  .program .timeline time{white-space:nowrap;font-size:12px;font-weight:700}
+  .program .timeline p{max-width:680px;font-size:15px;line-height:1.45}
+  .program .timeline li div>span{margin-top:7px;font-size:12px;line-height:1.45}
+  .program .schedule__group--accent{margin-top:26px;padding:38px 42px}
+  .program .roundtables p{grid-template-columns:38px minmax(0,1fr);gap:16px;padding:20px 0;font-size:15px;line-height:1.45}
+}

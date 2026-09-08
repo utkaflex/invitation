@@ -1,4 +1,4 @@
-@font-face{font-family:Onest;src:url("source/OnestRegular1602-hint.ttf");font-weight:400;font-display:swap}@font-face{font-family:Onest;src:url("source/OnestMedium1602-hint.woff");font-weight:500;font-display:swap}@font-face{font-family:Onest;src:url("source/OnestBold1602-hint.woff");font-weight:700;font-display:swap}@font-face{font-family:Onest;src:url("source/OnestExtraBold1602-hint.woff");font-weight:800;font-display:swap}
+﻿@font-face{font-family:Onest;src:url("source/OnestRegular1602-hint.ttf");font-weight:400;font-display:swap}@font-face{font-family:Onest;src:url("source/OnestMedium1602-hint.woff");font-weight:500;font-display:swap}@font-face{font-family:Onest;src:url("source/OnestBold1602-hint.woff");font-weight:700;font-display:swap}@font-face{font-family:Onest;src:url("source/OnestExtraBold1602-hint.woff");font-weight:800;font-display:swap}
 @font-face{font-family:Geometria;src:url("source/geometria_light.otf");font-weight:300;font-display:swap}@font-face{font-family:Geometria;src:url("source/geometria_medium.otf");font-weight:500;font-display:swap}
 :root{--ink:#202527;--muted:#657074;--cyan:#3fc5cf;--deep:#168e9c;--ice:#edf9fa;--line:rgba(32,37,39,.15);font-family:Onest,Arial,sans-serif;color:var(--ink);background:#f8fbfb;scroll-behavior:smooth}*{box-sizing:border-box}html,body{margin:0;min-height:100%}body{overflow-x:hidden}button,a{font:inherit}a{color:inherit;text-decoration:none}
 .site-header{position:fixed;z-index:50;top:0;display:flex;width:100%;height:76px;align-items:center;justify-content:space-between;padding:14px 20px;background:rgba(244,251,251,.88);border-bottom:1px solid #20252712;backdrop-filter:blur(14px)}.brand img{display:block;width:142px;height:44px;object-fit:contain}.menu-button{display:grid;width:44px;height:44px;place-content:center;gap:7px;padding:0;border:0;border-radius:50%;background:var(--ink)}.menu-button span{width:18px;height:1px;background:#fff;transition:.25s}.menu-button[aria-expanded=true] span:first-child{transform:translateY(4px) rotate(45deg)}.menu-button[aria-expanded=true] span:last-child{transform:translateY(-4px) rotate(-45deg)}.nav{position:fixed;top:76px;right:0;left:0;display:flex;flex-direction:column;padding:8px 20px 24px;background:#f4fbfb;transform:translateY(-130%);transition:.35s;box-shadow:0 14px 30px #143c401f}.nav.is-open{transform:none}.nav a{padding:16px 0;border-bottom:1px solid var(--line);font-size:18px}
@@ -114,38 +114,21 @@ h1 span,h1 em,h1 strong,h2 span,h2 em,h2 strong,h3 span,h3 em,h3 strong,h4 span,
   .program .roundtables p{grid-template-columns:38px minmax(0,1fr);gap:16px;padding:20px 0;font-size:15px;line-height:1.45}
 }
 
-/* October 2 conference: date alongside a concise programme. */
-.conference-day{display:grid;gap:28px;max-width:900px;margin-top:54px;padding-top:38px;border-top:1px solid #ffffff33}
-.conference-date{display:flex;align-items:center;gap:12px;width:250px;max-width:100%;height:max-content;padding:14px;color:var(--ink);background:var(--cyan)}
+/* October 2 uses the same schedule layout as October 1. */
+.conference-day{max-width:900px;margin-top:54px}
+.conference-date{display:flex;align-items:center;gap:12px;width:250px;max-width:100%;padding:14px;color:var(--ink);background:var(--cyan);margin-bottom:40px}
 .conference-date b{font-size:34px;font-weight:400}
 .conference-date span{font-size:10px;line-height:1.25;text-transform:uppercase}
 .conference-day__content{min-width:0}
-.conference-day h3{margin:0 0 24px;font-size:clamp(20px,2.2vw,29px);line-height:1.4;overflow-wrap:break-word}
-.conference-day .button--cyan{max-width:540px;gap:20px;padding:18px 20px;color:var(--ink);background:var(--cyan);line-height:1.5}
+.conference-topic{margin:0 0 24px;color:#ffffff99;font-size:13px;line-height:1.6}
+.conference-day .button--cyan{max-width:360px;margin-top:28px;gap:20px;padding:16px 20px;color:var(--ink);background:var(--cyan);line-height:1.5}
 .button--cyan:hover{background:#75d9e0}
 .conference-day a:focus-visible,.contact-email:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}
-.conference-day h4{margin:32px 0 18px;font-size:16px;line-height:1.4}
 .conference-day__note{margin:12px 0 0;color:#ffffffa3;font-size:12px;line-height:1.6}
-.conference-day__contact{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:28px;padding-top:20px;border-top:1px solid #ffffff33;font-size:14px;line-height:1.5}
+.conference-day__contact{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:28px;padding-top:20px;border-top:1px solid #ffffff33;font-size:13px;line-height:1.5}
 .conference-day__contact p{flex-basis:100%;margin:0}
 .conference-day__contact a{color:var(--cyan);overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:4px}
 .contact-list article{min-width:0}
 .contact-list .contact-email{display:block;margin-top:18px;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
-@media(min-width:1000px){.conference-day{grid-template-columns:250px minmax(0,1fr);gap:54px;max-width:1180px}.contacts .contact-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
-/* Compact conference hierarchy and responsive section cards. */
-.conference-eyebrow{margin:0 0 12px;color:var(--cyan);font-size:12px;line-height:1.6}
-.conference-day h3{margin:0 0 14px;font-size:clamp(26px,3vw,38px);line-height:1.15}
-.conference-topic{max-width:550px;margin:0;color:#ffffffbf;font-size:16px;line-height:1.6}
-.conference-details{margin:16px 0 26px;color:#ffffffa3;font-size:13px;line-height:1.65}
-.conference-details summary{width:fit-content;cursor:pointer;text-decoration:underline;text-underline-offset:4px}
-.conference-details summary:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}
-.conference-details p{max-width:640px;margin:14px 0 0}
-.conference-day .button--cyan{max-width:360px;min-height:56px;font-weight:500}
-.conference-sections{display:grid;gap:12px;margin:0;padding:0;list-style:none}
-.conference-sections li{min-width:0;padding:22px;background:#2b3436;border-top:2px solid var(--cyan)}
-.conference-sections time{display:block;margin-bottom:18px;color:var(--cyan);font-size:13px;font-weight:500}
-.conference-sections p{margin:0 0 12px;font-size:17px;font-weight:500;line-height:1.4}
-.conference-sections li span{display:block;color:#ffffffa3;font-size:12px;line-height:1.7}
-.conference-day__contact{font-size:13px}
-@media(min-width:760px){.conference-sections{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:759px){.conference-date{width:180px}.conference-sections li{padding:20px}.conference-sections time{margin-bottom:10px}.conference-day__contact{flex-direction:column;align-items:flex-start}.conference-day__contact p{flex-basis:auto}}
+@media(min-width:1000px){.conference-day{max-width:1180px}.conference-date{margin-bottom:54px}.conference-topic{margin-top:18px}.contacts .contact-list{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:759px){.conference-day__contact{flex-direction:column;align-items:flex-start}.conference-day__contact p{flex-basis:auto}}

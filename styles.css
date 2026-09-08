@@ -113,3 +113,22 @@ h1 span,h1 em,h1 strong,h2 span,h2 em,h2 strong,h3 span,h3 em,h3 strong,h4 span,
   .program .schedule__group--accent{margin-top:26px;padding:38px 42px}
   .program .roundtables p{grid-template-columns:38px minmax(0,1fr);gap:16px;padding:20px 0;font-size:15px;line-height:1.45}
 }
+
+/* October 2 conference: date alongside a concise programme. */
+.conference-day{display:grid;gap:28px;max-width:900px;margin-top:54px;padding-top:38px;border-top:1px solid #ffffff33}
+.conference-date{display:flex;align-items:center;gap:12px;width:250px;max-width:100%;height:max-content;padding:14px;color:var(--ink);background:var(--cyan)}
+.conference-date b{font-size:34px;font-weight:400}
+.conference-date span{font-size:10px;line-height:1.25;text-transform:uppercase}
+.conference-day__content{min-width:0}
+.conference-day h3{margin:0 0 24px;font-size:clamp(20px,2.2vw,29px);line-height:1.4;overflow-wrap:break-word}
+.conference-day .button--cyan{max-width:540px;gap:20px;padding:18px 20px;color:var(--ink);background:var(--cyan);line-height:1.5}
+.button--cyan:hover{background:#75d9e0}
+.conference-day a:focus-visible,.contact-email:focus-visible{outline:2px solid var(--cyan);outline-offset:5px}
+.conference-day h4{margin:32px 0 18px;font-size:16px;line-height:1.4}
+.conference-day__note{margin:12px 0 0;color:#ffffffa3;font-size:12px;line-height:1.6}
+.conference-day__contact{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:28px;padding-top:20px;border-top:1px solid #ffffff33;font-size:14px;line-height:1.5}
+.conference-day__contact p{flex-basis:100%;margin:0}
+.conference-day__contact a{color:var(--cyan);overflow-wrap:anywhere;text-decoration:underline;text-underline-offset:4px}
+.contact-list article{min-width:0}
+.contact-list .contact-email{display:block;margin-top:18px;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+@media(min-width:1000px){.conference-day{grid-template-columns:250px minmax(0,1fr);gap:54px;max-width:1180px}.contacts .contact-list{grid-template-columns:repeat(3,minmax(0,1fr))}}

@@ -39,10 +39,6 @@
 .logo-grid figure:nth-child(4) img{width:82%;max-width:240px;max-height:145px;transform:none}
 .google-form{width:100%;margin-top:30px;overflow:hidden;background:#fff}
 .google-form iframe{display:block;width:100%;min-width:0;height:1250px;border:0}
-.form-target{position:absolute;width:1px;height:1px;border:0;opacity:0;pointer-events:none}
-.form-success{display:none!important;margin:0!important;padding:16px;color:#0b626a!important;background:#cceff1;font-size:13px!important;font-weight:700;text-align:center}
-.registration-form.is-sent .form-success{display:block!important}
-.form-submit:disabled{opacity:.65;cursor:wait}
 
 /* Refinement based on the printed invitation and the brand guide */
 .brand img{width:176px;height:52px;object-position:left center}

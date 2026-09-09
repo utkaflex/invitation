@@ -27,30 +27,15 @@ document.querySelector('.to-top').addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-const observer = new IntersectionObserver(
-  (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
-  { threshold: 0.08 }
-);
+if ('IntersectionObserver' in window) {
+  const observer = new IntersectionObserver(
+    (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+} else {
+  document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
+}
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
-
-const registrationForm = document.querySelector('#registration-form');
-const formTarget = document.querySelector('.form-target');
-let formSubmitted = false;
-
-registrationForm.addEventListener('submit', () => {
-  formSubmitted = true;
-  const submitButton = registrationForm.querySelector('.form-submit');
-  submitButton.disabled = true;
-  submitButton.firstChild.textContent = 'Отправляем… ';
-});
-
-formTarget.addEventListener('load', () => {
-  if (!formSubmitted) return;
-  registrationForm.reset();
-  registrationForm.classList.add('is-sent');
-  const submitButton = registrationForm.querySelector('.form-submit');
-  submitButton.disabled = false;
-  submitButton.firstChild.textContent = 'Отправить ещё раз ';
-  formSubmitted = false;
-});
+// Submit natively to a visible Google Forms tab, even without JavaScript.
+// A cross-origin iframe load cannot confirm that Google saved a response.

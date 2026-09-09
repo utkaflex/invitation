@@ -1,5 +1,5 @@
 (() => {
-  const endpoint = 'https://script.google.com/macros/s/AKfycby4S3jgN6Ogz4zrh0IWxTbZCLfs4sD9vWP5Z938QoJOvQGN3K67FHyWK9qtiVcRx_Nwwg/exec';
+  const endpoint = 'https://script.google.com/macros/s/AKfycby2lh9UEARB6YcWPHONON4Keymsh3MnRF7lW_KNcEiSX-WiOF8nOR_UnuSoRYwZ-sduOQ/exec';
   const form = document.querySelector('#registration-form');
   if (!form) return;
   const button = form.querySelector('.form-submit');

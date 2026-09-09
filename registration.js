@@ -4,6 +4,14 @@
   if (!form) return;
   const button = form.querySelector('.form-submit');
   const status = form.querySelector('.registration-status');
+  const debug = new URLSearchParams(window.location.search).get('registrationDebug') === '1';
+  let diagnostics;
+  if (debug) {
+    diagnostics = document.createElement('pre');
+    diagnostics.style.cssText = 'white-space:pre-wrap;overflow-wrap:anywhere;font-size:13px';
+    diagnostics.textContent = 'Замеры появятся после отправки новой заявки.';
+    form.appendChild(diagnostics);
+  }
   let busy = false;
   let attempt = null;
   const storageKey = '70aero-registration-v1';
@@ -64,11 +72,34 @@
       const controller = new AbortController();
       slow = setTimeout(() => message('Google отвечает дольше обычного. Подождите, отправка продолжается…', 'pending'), 8000);
       timeout = setTimeout(() => controller.abort(), 30000);
+      const requestStarted = performance.now();
       const response = await fetch(endpoint, {
         method: 'POST', body, credentials: 'omit', redirect: 'follow', signal: controller.signal
       });
       if (!response.ok) throw new Error('HTTP');
       const result = await response.json();
+      if (diagnostics) {
+        const labels = {
+          readConfigMs: 'Чтение настроек', lockWaitMs: 'Ожидание блокировки',
+          readReceiptMs: 'Проверка дубля', openFormMs: 'Открытие формы',
+          checkOpenMs: 'Проверка приёма заявок', createResponseMs: 'Создание ответа',
+          writePendingMs: 'Запись начала отправки', submitMs: 'Сохранение в Google Forms',
+          readSavedIdMs: 'Получение подтверждения', writeReceiptMs: 'Запись результата',
+          beforeResponseMs: 'Всего в скрипте до формирования ответа'
+        };
+        for (let i = 1; i <= 6; i++) labels[`prepareField${i}Ms`] = `Подготовка поля ${i}`;
+        const lines = [`Запрос целиком: ${Math.round(performance.now() - requestStarted)} мс`];
+        const timing = result.diagnostics && result.diagnostics.timings;
+        if (timing) {
+          Object.keys(labels).forEach(key => {
+            if (Number.isFinite(timing[key]) && timing[key] >= 0) lines.push(`${labels[key]}: ${timing[key]} мс`);
+          });
+          lines.push('Общее время запроса включает сеть и перенаправления Google.');
+        } else {
+          lines.push('Обработчик ещё не возвращает замеры. Обновите Apps Script до версии 3.');
+        }
+        diagnostics.textContent = lines.join('\n');
+      }
       if (result.ok === true && result.code === 'saved' && result.requestId === attempt.id) {
         attempt.state = 'saved';
         persist();

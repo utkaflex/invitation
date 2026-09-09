@@ -36,6 +36,3 @@ if ('IntersectionObserver' in window) {
 } else {
   document.querySelectorAll('.reveal').forEach((element) => element.classList.add('is-visible'));
 }
-
-// Submit natively to a visible Google Forms tab, even without JavaScript.
-// A cross-origin iframe load cannot confirm that Google saved a response.

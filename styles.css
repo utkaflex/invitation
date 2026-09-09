@@ -24,6 +24,11 @@
 .consent input{width:18px;height:18px;margin:0;accent-color:var(--deep)}
 .consent span{font-size:10px!important;font-weight:400!important;line-height:1.45}
 .form-submit{width:100%;max-width:none!important}
+.form-submit:disabled{opacity:.65;cursor:wait}
+.registration-status{margin:0;padding:16px;background:#fff0e5;color:#713d16;font-size:14px;line-height:1.5;overflow-wrap:anywhere}
+.registration-status[data-kind=success]{background:#cceff1;color:#0b626a}
+.registration-status[data-kind=pending]{background:#e1f2f4;color:#24565b}
+.registration-status[hidden]{display:none}
 .logo-grid figure{min-height:160px;padding:12px}
 .logo-grid img{width:100%;max-width:150px;max-height:120px;filter:none}
 .to-top{width:max-content;padding:8px 0;border:0;color:#fff;background:none;font-size:12px;text-transform:uppercase;cursor:pointer}
